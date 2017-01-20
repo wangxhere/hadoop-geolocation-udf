@@ -57,8 +57,11 @@ public class GeoEncodeUDF extends GenericUDF {
         //		System.out.println("LatLong are " + tmpLatLng[0] + "#" + tmpLatLng[1]);
 
         ArrayList<FloatWritable> result = new ArrayList<FloatWritable>();
-        result.add(new FloatWritable(tmpLatLng[0]));
-        result.add(new FloatWritable(tmpLatLng[1]));
+
+        if (tmpLatLng != null) {
+            result.add(new FloatWritable(tmpLatLng[0]));
+            result.add(new FloatWritable(tmpLatLng[1]));
+        }
         return result;
     }
 
