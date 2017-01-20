@@ -58,6 +58,9 @@ public class GeoEncodeUDF extends GenericUDF {
 
         ArrayList<FloatWritable> result = new ArrayList<FloatWritable>();
 
+        if (result == null)
+            throw new HiveException("unable to allocate memory for result output");
+
         if (tmpLatLng != null) {
             result.add(new FloatWritable(tmpLatLng[0]));
             result.add(new FloatWritable(tmpLatLng[1]));
