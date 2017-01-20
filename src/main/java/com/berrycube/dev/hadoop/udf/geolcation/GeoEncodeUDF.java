@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by wangxhere on 1/19/2017.
  */
-// from http://rishavrohitblog.blogspot.sg/2014/09/hive-udf-to-get-latitude-and-longitude.html
+// developed from http://rishavrohitblog.blogspot.sg/2014/09/hive-udf-to-get-latitude-and-longitude.html
 @Description(name = "GeoEncodeUDF", value = "Get Lat-Lng", extended = "fetches location co-ordinates for given location from Google geocode Api and returns an ARRAY of 2 floats [lat,lng]")
 @UDFType(deterministic = true)
 public class GeoEncodeUDF extends GenericUDF {
