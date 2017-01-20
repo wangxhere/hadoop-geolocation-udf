@@ -59,6 +59,7 @@ public class GeoLatLng {
                 geoPoints[0] = new Float(latlng.get("lat").toString());
                 geoPoints[1] = new Float(latlng.get("lng").toString());
             } catch (Exception e) {
+                System.err.println("Got error in decoding result: " + latlng.toString());
                 geoPoints[0] = null;
                 geoPoints[1] = null;
             }
