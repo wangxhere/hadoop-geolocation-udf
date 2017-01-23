@@ -12,7 +12,7 @@ import java.io.IOException;
 
 // developed from http://rishavrohitblog.blogspot.sg/2014/09/hive-udf-to-get-latitude-and-longitude.html
 public class GeoLatLng {
-    public static Float[] getLatLng(String location) throws HiveException {
+    public static Float[] getLatLng(String location, String apikey) throws HiveException {
         //		String geoPoints = null;
         Float[] geoPoints = new Float[] {null, null};
         // if input is null return null array
@@ -22,7 +22,8 @@ public class GeoLatLng {
 
 
         try {
-            loc_uri = URIUtil.encodeQuery("http://maps.googleapis.com/maps/api/geocode/json?address=" + location);
+            loc_uri = URIUtil.encodeQuery("http://maps.googleapis.com/maps/api/geocode/json?address=" + location
+                + "&key=" + apikey);
         } catch (URIException e) {
             throw new HiveException(e);
         }

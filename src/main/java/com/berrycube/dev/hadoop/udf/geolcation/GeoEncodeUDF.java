@@ -43,7 +43,7 @@ public class GeoEncodeUDF extends GenericUDF {
     @Override
     public Object evaluate(DeferredObject[] arguments) throws HiveException {
         // Should be exactly one argument
-        if( arguments.length!=1 ) {
+        if( arguments.length!=1 && arguments.length!=2 ) {
             return null;
         }
         // If passed a null, return a null
@@ -53,7 +53,7 @@ public class GeoEncodeUDF extends GenericUDF {
 
         //		System.out.println("arguments[0].toString() is " + arguments[0].toString());
         //		System.out.println("arguments[0] is " + arguments[0].get());
-        Float[] tmpLatLng = GeoLatLng.getLatLng(arguments[0].get().toString());
+        Float[] tmpLatLng = GeoLatLng.getLatLng(arguments[0].get().toString(), arguments[1] != null ? arguments[1].get().toString() : "");
         //		System.out.println("LatLong are " + tmpLatLng[0] + "#" + tmpLatLng[1]);
 
         ArrayList<FloatWritable> result = new ArrayList<FloatWritable>();
